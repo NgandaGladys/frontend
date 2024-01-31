@@ -1,0 +1,142 @@
+/* *{
+  background-color: white;
+  color: black;
+} */
+
+.section {
+  display: flex;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+}
+
+img {
+  margin-right: 80px;
+}
+
+.section1,
+.section2 {
+  margin: 5px;
+  width: calc(50% - 20px);
+}
+
+.section2 {
+  margin-right: 25px;
+}
+
+.section2 form {
+  /* margin-bottom: 5px; */
+  position: relative;
+  border: none;
+  margin-bottom: 40px;
+  /* margin-right: 25px; */
+}
+
+.section2 form input,
+textarea {
+  border-radius: 10px;
+  margin-top: 10px; /* Adjust the margin */
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+}
+
+#btn-1 {
+  background-color: goldenrod;
+  margin-left: 20px;
+  border-radius: 20px;
+  padding: 5px;
+  color: white;
+  display: inline-block;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+#btn-2 {
+  background-color: darkgreen;
+  margin-left: 20px;
+  border-radius: 20px;
+  padding: 5px;
+  color: white;
+  display: inline-block;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 60px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  width: 550px;
+  margin-left: 400px;
+}
+.form h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input {
+  margin-top: 80px;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: goldenrod;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* side bar */
+
+.nav {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fdfafa; /* Background color of the side nav */
+  color: black;
+  padding-top: 20px;
+  height: 100vh;
+  width: 200px;
+  border-right: 1px solid green;
+}
+/* 
+.log {
+  margin-bottom: 20px; 
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.icon svg {
+  font-size: 24px;
+  margin-right: 10px; 
+}
+
+.icon span {
+  font-size: 14px;
+}
+
+ */
+
+.cards {
+  width: 60px;
+  background-color: yellowgreen;
+}

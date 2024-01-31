@@ -1,0 +1,14 @@
+
+@font-face {
+    font-family: 'NotoSerif-VariableFont';
+    src: local('NotoSerif-VariableFont'), url('./fonts/NotoSerif-VariableFont.ttf') format('ttf');
+    font-weight: 300; 
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'FjordOne-Regular', sans-serif;
+  }
+  
+
+  
