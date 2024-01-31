@@ -33,8 +33,10 @@ function App() {
           <Route path="/dashboard/levels" element={<LevelContent />} />
           <Route path="/dashboard/pending" element={<PendingContent />} />
           <Route path="/dashboard/customer"element={<Customer/>} />
+          <Route path="/logout" element={<HomePage/>} />
 
         </Route>
+        
         <Route path="/form" element={<LoginForm />} />
         {/* <Route path="/chart" element={</>}/> */}
         <Route path="/chart" element={<ChartsOverviewDemo/>}/>

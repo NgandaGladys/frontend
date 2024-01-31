@@ -23,6 +23,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { MdHomeFilled } from 'react-icons/md';
 import { MdInbox, MdPerson } from 'react-icons/md';
 import { MdSignalCellularAlt } from "react-icons/md";
+import LogoutIcon from '@mui/icons-material/Logout';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import { Outlet } from 'react-router-dom';
@@ -73,6 +74,15 @@ function Dashboard(props) {
       text: 'Levels',
       route: '/dashboard/levels',
     },
+
+
+    {
+      icon: <LogoutIcon className="text-lime-600 hover:text-lime-500 size-6" />,
+      text: 'LogOut',
+      route: '/logout',
+    },
+
+
   ];
 
   const handleDrawerClose = () => {
