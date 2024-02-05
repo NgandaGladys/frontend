@@ -15,6 +15,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -114,7 +115,8 @@ const UserContent = () => {
   const [isEditFormVisible, setIsEditFormVisible] = useState(false);
 
   let rowsData = [
-    // Your existing data...
+    // data...
+
   ];
 
   function openEditForm() {
@@ -126,7 +128,7 @@ const UserContent = () => {
   }
 
   function handleUpdate() {
-    // Your existing handleUpdate logic
+    // handleUpdate logic
 
     // Close the edit form after updating
     closeEditForm();

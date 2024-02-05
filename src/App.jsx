@@ -13,32 +13,35 @@ import PendingContent from './components/pendingContent';
 import CustomerContent from './components/customerContent';
 import UserContent from './components/userContent';
 import Customer from './components/customer';
-import ChartsOverviewDemo from './components/chartComponent';
+// import { BarGraph } from './components/chartComponent';
+// import BarGraph from './components/chartComponent';
+
+import { getSavedData } from './utils/utility';
 
 function App() {
- 
+  const userData = getSavedData();
+  const userName = userData ? userData.name : 'User';
+
   return (
     <Router>
       <Routes>
-
-      
         <Route path="/" element={<HomePage />} />
         {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
 
         {/*Routes to user dashboard */}
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/dashboard" element={<Dashboard userName={userName} />}>
           <Route index element={<HomeContent />} />
           <Route path="/dashboard/complaints" element={<ComplaintsContent />} />
           <Route path="/dashboard/answered" element={<AnsweredContent />} />
           <Route path="/dashboard/levels" element={<LevelContent />} />
           <Route path="/dashboard/pending" element={<PendingContent />} />
-          <Route path="/dashboard/customer"element={<Customer/>} />
-
+          <Route path="/dashboard/customer" element={<Customer />} />
+          {/* <Route path="/dashboard/logout" element={<HomePage/>} /> */}
         </Route>
+
         <Route path="/form" element={<LoginForm />} />
-        {/* <Route path="/chart" element={</>}/> */}
-        <Route path="/chart" element={<ChartsOverviewDemo/>}/>
-        
+        <Route path="/line" element={<BarGraph/>}/>
+
         {/* Routes to admin-dashboard*/}
         <Route path="/admin-dashboard" element={<AdminDashboard />}>
           <Route index element={<HomeContent />} />
