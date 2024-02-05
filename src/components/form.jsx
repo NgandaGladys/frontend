@@ -9,6 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { getSavedData, saveData } from '../utils/utility';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -27,15 +28,17 @@ const LoginForm = () => {
         username: username,
         password: password,
       };
-      saveData(formData);
+
       // Check if the user is a super admin
       if (
         username.toLowerCase() === superAdminUsername.toLowerCase() &&
         password.toLowerCase() === superAdminPassword.toLowerCase()
       ) {
+        saveData('loginData', formData);
         // Navigate to super admin dashboard
         navigate('/admin-dashboard');
       } else {
+        saveData('loginData', formData);
         // Navigate to normal user dashboard
         navigate('/dashboard');
       }
@@ -44,21 +47,8 @@ const LoginForm = () => {
     }
   };
 
-  // save data to localstorage  bur first make it a string
-  const saveData = (formData) => {
-    let jsonData = JSON.stringify(formData);
-    localStorage.setItem('loginData', jsonData);
-  };
-
-  // get data from localStorage, parse it from string back to object
-  const getSavedData = () => {
-    let formData = localStorage.getItem('loginData');
-    let data = JSON.parse(formData);
-    return data;
-  };
-
   useEffect(() => {
-    let data = getSavedData();
+    let data = getSavedData('loginData');
     if (data) {
       setUsername(data.username);
       setPassword(data.password);

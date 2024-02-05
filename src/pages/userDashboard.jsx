@@ -22,21 +22,31 @@ import CardContent from '@mui/material/CardContent';
 import LinearProgress from '@mui/material/LinearProgress';
 import { MdHomeFilled } from 'react-icons/md';
 import { MdInbox, MdPerson } from 'react-icons/md';
-import { MdSignalCellularAlt } from "react-icons/md";
+import { MdSignalCellularAlt } from 'react-icons/md';
 import LogoutIcon from '@mui/icons-material/Logout';
+// import { getSavedData } from '../utils/utility';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getSavedData } from '../utils/utility';
 
 const drawerWidth = 240;
 
-function Dashboard(props) {
+export default function Dashboard(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [isClosing, setIsClosing] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const [userName, setUsername] = useState('');
 
-  
+  useEffect(() => {
+    let data = getSavedData('loginData');
+    if (data.username) {
+      setUsername(data.username);
+    }
+  }, []);
+
   let sideBarItems = [
     {
       icon: <MdHomeFilled className="text-lime-600 size-6" />,
@@ -48,41 +58,42 @@ function Dashboard(props) {
       text: 'Complaints',
       route: '/dashboard/complaints',
     },
-     
+
     {
       icon: <MdPerson className="text-lime-600 hover:text-lime-500 size-6" />,
       text: 'Customers',
       route: '/dashboard/customer',
     },
 
-
-
     {
-      icon: <QuestionAnswerIcon  className="text-lime-600 hover:text-lime-500 size-6" />,
+      icon: (
+        <QuestionAnswerIcon className="text-lime-600 hover:text-lime-500 size-6" />
+      ),
       text: 'Answered',
       route: '/dashboard/answered',
     },
 
     {
-      icon: <PendingActionsIcon className="text-lime-600 hover:text-lime-500 size-6" />,
+      icon: (
+        <PendingActionsIcon className="text-lime-600 hover:text-lime-500 size-6" />
+      ),
       text: 'Pending',
       route: '/dashboard/pending',
     },
 
     {
-      icon: <MdSignalCellularAlt className="text-lime-600 hover:text-lime-500 size-6" />,
+      icon: (
+        <MdSignalCellularAlt className="text-lime-600 hover:text-lime-500 size-6" />
+      ),
       text: 'Levels',
       route: '/dashboard/levels',
     },
 
-
     {
       icon: <LogoutIcon className="text-lime-600 hover:text-lime-500 size-6" />,
       text: 'LogOut',
-      route: '/logout',
+      route: '/dashboard/logout',
     },
-
-
   ];
 
   const handleDrawerClose = () => {
@@ -145,7 +156,7 @@ function Dashboard(props) {
             component="div"
             sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <MdOutlineWavingHand />
-            Welcome Gladys
+            Welcome {userName}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -199,5 +210,3 @@ function Dashboard(props) {
     </Box>
   );
 }
-
-export default Dashboard;

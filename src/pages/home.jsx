@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/footer';
 import { useEffect } from 'react';
+import { getSavedData, saveData } from '../utils/utility';
 
 const HomePage = () => {
   const [customerName, setCustomerName] = useState('');
@@ -14,37 +15,13 @@ const HomePage = () => {
       email: email,
       message: message,
     };
-    saveData(formData);
+    saveData('customerData', formData);
     alert('Your message has been received successfully!');
   };
 
-  // // save data to localstorage  but first make it a string
-  // const saveData = (formData) => {
-  //   let jsonData = JSON.stringify(formData);
-  //   localStorage.setItem('formData', jsonData);
-  // };
-
-  // // get data from localStorage, parse it from string back to object
-  // const getSavedData = () => {
-  //   let formData = localStorage.getItem('formData');
-  //   let data = JSON.parse(formData);
-  //   return data;
-  // };
-
-  const saveData = (formData) => {
-    let jsonData = JSON.stringify([...getSavedData(), formData]);
-    localStorage.setItem('customerData', jsonData);
-  };
-
-  const getSavedData = () => {
-    let formData = localStorage.getItem('customerData');
-    return formData ? JSON.parse(formData) : [];
-  };
-
-
-
   useEffect(() => {
-    let data = getSavedData();
+    let data = getSavedData('customerData');
+    console.log(data);
     if (data) {
       setCustomerName(data.customerName);
       setEmail(data.email);
@@ -126,9 +103,10 @@ const HomePage = () => {
         </form>
       </main>
       {/* The Footer */}
-      <footer className="flex w-full justify-between items-center bg-lime-800 text-white px-[5%] pb-8 pt-8">
+      <footer className="flex w-full justify-between items-center bg-lime-800 text-white px-[4%] pb-8 pt-8">
         <div className="flex">
-          <p>Eseri, Plot 2893 Kayondo Road Bbuye-Ntinda Kampala(U)</p>
+          <h3>ESERI, Plot 2893 Kayondo Road </h3>
+          <h3>Bbuye-Ntinda Kampala(U)</h3>
         </div>
         <div className="flex flex-col gap-2">
           <h3>+256 777767608</h3>

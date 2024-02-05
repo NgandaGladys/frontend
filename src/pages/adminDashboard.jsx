@@ -35,6 +35,7 @@ import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LogoutIcon from '@mui/icons-material/Logout'
 
 const drawerWidth = 240;
 
@@ -91,6 +92,12 @@ function AdminDashboard(props) {
       icon: <MdSettings className="text-lime-600 hover:text-lime-500 size-6" />,
       text: 'Settings',
       route: '/admin-dashboard/levels',
+    },
+
+    {
+      icon: <LogoutIcon className="text-lime-600 hover:text-lime-500 size-6" />,
+      text: 'LogOut',
+      route: '/dashboard/logout',
     },
   ];
 
